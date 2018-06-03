@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局</title>
+    <style>
+    html,
+    body,
+    h3 {
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .layout.float .wrapper div {
+        height: 100px;
+    }
+
+    .layout.float .wrapper .left {
+        float: left;
+        width: 300px;
+        background-color: red;
+    }
+
+    .layout.float .wrapper .center {
+        background-color: blue;
+    }
+
+    .layout.float .wrapper .right {
+        float: right;
+        width: 300px;
+        background-color: yellow;
+    }
+
+    .layout.absolute .wrapper div {
+        position: absolute;
+        height: 100px;
+    }
+
+    .layout.absolute .wrapper .left {
+        left: 0;
+        width: 300px;
+        background: red;
+    }
+
+    .layout.absolute .wrapper .center {
+        left: 300px;
+        right: 300px;
+        background: blue;
+    }
+
+    .layout.absolute .wrapper .right {
+        right: 0;
+        width: 300px;
+        background: yellow;
+    }
+
+    .layout.flex {
+        margin-top: 100px;
+    }
+
+    .layout.flex .wrapper {
+        display: flex;
+    }
+
+    .layout.flex div {
+        height: 100px;
+    }
+
+    .layout.flex .left {
+        flex: 0 0 300px;
+        background-color: red;
+    }
+
+    .layout.flex .center {
+        flex: 1;
+        background-color: blue;
+    }
+
+    .layout.flex .right {
+        flex: 0 0 300px;
+        background-color: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <p>高度已知，左右等宽，中间自适应</p>
+    <section class="layout float">
+        <h3>float方法</h3>
+        <div class="wrapper">
+            <div class="left">左边</div>
+            <div class="right">右边</div>
+            <div class="center">中间</div>
+        </div>
+    </section>
+    <section class="layout absolute">
+        <h3>绝对定位方法</h3>
+        <div class="wrapper">
+            <div class="left">左边</div>
+            <div class="right">右边</div>
+            <div class="center">中间</div>
+        </div>
+    </section>
+    <section class="layout flex">
+        <h3>flex</h3>
+        <div class="wrapper">
+            <div class="left">左边</div>
+            <div class="center">中间</div>
+            <div class="right">右边</div>
+        </div>
+    </section>
+</body>
+
+</html>
