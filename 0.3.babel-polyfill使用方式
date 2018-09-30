@@ -9,3 +9,5 @@ babel默认只会转换语法，比如ES6的箭头函数，以及class之类的�
 3. 全局使用 babel-polyfill
 
 4. 使用babel-polyfill + babel-preset-env
+
+5. polyfill.io
