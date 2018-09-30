@@ -1,0 +1,11 @@
+## babel-polyfill 使用方式
+
+babel默认只会转换语法，比如ES6的箭头函数，以及class之类的，但是不会转换Promise, Map, Set这些新增的全局对象，如果需要转换这些新增的对象以及方法，需要额外引入相应的转换插件或者polyfill。
+
+1. 使用转换插件： babel-plugin-transform-xxx
+
+2. 使用插件 babel-runtime + babel-plugin-transform-runtime
+
+3. 全局使用 babel-polyfill
+
+4. 使用babel-polyfill + babel-preset-env
