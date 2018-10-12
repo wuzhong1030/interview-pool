@@ -5,43 +5,67 @@
 </head>
 <body>
 	<script type="text/javascript">
-		//定义父类 
+		//定义父类 动物
 		function Animal (name) {
 			// 属性
 			this.name = name || 'animal'
 			//实例方法
 			this.sleep = function () {
-				console.log(this.name + 'is sleeping...')
+				console.log(this.name + ' is sleeping...')
 			}
 		}
 		//原型方法
 		Animal.prototype.walk = function () {
-			console.log(this.name + 'is walking')
+			console.log(this.name + ' is walking')
 		}
 
 		Animal.eat = function () {
-			console.log(this.name + 'is eating')
+			console.log(this.name + ' is eating')
 		}
 
-		/*  1. 原型链继承 */
-		function Cat () { }
-		Cat.prototype = new Animal()
-		//原型属性
-		Cat.prototype.name = 'miaomiao'
+		//定义父类 猫科
+		function Felidae () {
+			this.type = function () {
+				console.log(this.type)
+			}
+		}
 
-		var cat = new Cat()
-		console.log(cat.__proto__ === Cat.prototype) //true
-		console.log(cat.__proto__ === Animal.prototype) //false
-		console.log(cat instanceof Cat) //true
-		console.log(cat instanceof Animal) //true
-		// cat.sleep() //miaomiaois sleeping...
-		// cat.walk() //miaomiaois walking
+		/*  ----------------------- 1. 原型链继承 -----------------------  */
+		// function Cat () { }
+		// Cat.prototype = new Animal()
+		// //原型属性
+		// Cat.prototype.name = 'miaomiao'
+
+		// var cat = new Cat()
+		// console.log(cat.__proto__ === Cat.prototype) //true
+		// console.log(cat.__proto__ === Animal.prototype) //false
+		// console.log(cat instanceof Cat) //true
+		// console.log(cat instanceof Animal) //true
+		// cat.sleep() //miaomiao is sleeping...
+		// cat.walk() //miaomiao is walking
 		// cat.eat() //cat.eat is not a function
 
-		var animal = new Animal()
+		// var animal = new Animal()
 		// animal.eat() //animal.eat is not a function
 
-		/* 2.  */
+		/*
+			优点: 1、单纯的实习继承，子类的实例也是父类的实例 2、父类的原型方法，属性，子类都可以访问
+			缺点: 1、不能实现多继承 2、原型对象的所有属性方法都被子类所共享 3、子类无法像父类构造器传参数
+		*/
+
+		/* -----------------------  2. 构造继承 -----------------------  */
+		function Cat (name) {
+			Animal.call(this)
+			this.name = name
+		}
+		function 
+		var cat = new Cat()
+		// console.log(cat.__proto__ === Animal.prototype) false
+		// console.log(cat instanceof Cat) true
+		// console.log(cat instanceof Animal) false
+		// cat.sleep() //undefined is sleeping...
+		// cat.name = 'cat'
+		// cat.sleep() //cat is sleeping...
 
 
 	</script>
