@@ -18,15 +18,17 @@
 		Animal.prototype.walk = function () {
 			console.log(this.name + ' is walking')
 		}
-
+		//类方法
 		Animal.eat = function () {
 			console.log(this.name + ' is eating')
 		}
 
 		//定义父类 猫科
-		function Felidae () {
-			this.type = function () {
-				console.log(this.type)
+		function Felidae (typeName) {
+			this.name = 'felidae'
+			this.typeName = typeName
+			this.getType = function () {
+				console.log(this.typeName)
 			}
 		}
 
@@ -53,20 +55,54 @@
 			缺点: 1、不能实现多继承 2、原型对象的所有属性方法都被子类所共享 3、子类无法像父类构造器传参数
 		*/
 
-		/* -----------------------  2. 构造继承 -----------------------  */
-		function Cat (name) {
-			Animal.call(this)
-			this.name = name
-		}
-		function 
-		var cat = new Cat()
+		// /* -----------------------  2. 构造继承 -----------------------  */
+		// function Cat (name) {
+		// 	Animal.call(this)
+		// 	Felidae.call(this, 'cats')
+		// 	this.name = name
+		// }
+		// var cat = new Cat()
 		// console.log(cat.__proto__ === Animal.prototype) false
 		// console.log(cat instanceof Cat) true
 		// console.log(cat instanceof Animal) false
 		// cat.sleep() //undefined is sleeping...
 		// cat.name = 'cat'
 		// cat.sleep() //cat is sleeping...
+		// cat.getType() //cats
+		// console.log(cat.name) //undefined
+		// cat.walk() //Uncaught TypeError: cat.walk is not a function
+		/*
+			优点: 1、可以实现多继承 2、向父类传递参数 
+			缺点: 1、不能实现函数复用 2、不能访问父类的原型属性和原型方法，只能访问实例属性和方法
+		*/
 
+
+		/* -----------------------  3. 实例继承 -----------------------  */
+		function Cat (name) {
+			var instance = new Animal()
+			instance.name = name || 'cat'
+			return instance
+		}
+		var cat = new Cat()
+		console.log(cat instanceof Cat) // false
+		console.log(cat instanceof Animal) //true
+		cat.sleep() //cat is sleeping...
+		cat.walk() //cat is walk
+
+		/*
+			实例是父类的实例，不支持多继承
+		*/
+
+		/* -----------------------  3. 拷贝继承 -----------------------  */
+		function Cat (name) {
+			var animal = new Animal()
+			for (var key in animal) {
+				Cat.prototype[key] = animal[key]
+			}
+			Cat.prototype.name = name || 'cat'
+		}
+		var cat = new  Cat()
+		
 
 	</script>
 </body>
