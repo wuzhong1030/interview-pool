@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//定义父类 
+		function Animal (name) {
+			// 属性
+			this.name = name || 'animal'
+			//实例方法
+			this.sleep = function () {
+				console.log(this.name + 'is sleeping...')
+			}
+		}
+		//原型方法
+		Animal.prototype.walk = function () {
+			console.log(this.name + 'is walking')
+		}
+
+		Animal.eat = function () {
+			console.log(this.name + 'is eating')
+		}
+
+		/*  1. 原型链继承 */
+		function Cat () { }
+		Cat.prototype = new Animal()
+		//原型属性
+		Cat.prototype.name = 'miaomiao'
+
+		var cat = new Cat()
+		console.log(cat.__proto__ === Cat.prototype) //true
+		console.log(cat.__proto__ === Animal.prototype) //false
+		console.log(cat instanceof Cat) //true
+		console.log(cat instanceof Animal) //true
+		// cat.sleep() //miaomiaois sleeping...
+		// cat.walk() //miaomiaois walking
+		// cat.eat() //cat.eat is not a function
+
+		var animal = new Animal()
+		// animal.eat() //animal.eat is not a function
+
+		/* 2.  */
+
+
+	</script>
+</body>
+</html>
