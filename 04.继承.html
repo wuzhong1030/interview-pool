@@ -78,31 +78,41 @@
 
 
 		/* -----------------------  3. 实例继承 -----------------------  */
-		function Cat (name) {
-			var instance = new Animal()
-			instance.name = name || 'cat'
-			return instance
-		}
-		var cat = new Cat()
-		console.log(cat instanceof Cat) // false
-		console.log(cat instanceof Animal) //true
-		cat.sleep() //cat is sleeping...
-		cat.walk() //cat is walk
+		// function Cat (name) {
+		// 	var instance = new Animal()
+		// 	instance.name = name || 'cat'
+		// 	return instance
+		// }
+		// var cat = new Cat()
+		// console.log(cat instanceof Cat) // false
+		// console.log(cat instanceof Animal) //true
+		// cat.sleep() //cat is sleeping...
+		// cat.walk() //cat is walking
+		// console.log(cat.__proto__ === Cat.prototype) //false
 
 		/*
 			实例是父类的实例，不支持多继承
 		*/
 
-		/* -----------------------  3. 拷贝继承 -----------------------  */
-		function Cat (name) {
-			var animal = new Animal()
-			for (var key in animal) {
-				Cat.prototype[key] = animal[key]
-			}
-			Cat.prototype.name = name || 'cat'
-		}
-		var cat = new  Cat()
-		
+		/* -----------------------  4. 拷贝继承 -----------------------  */
+		// function Cat (name) {
+		// 	var animal = new Animal()
+		// 	for (var key in animal) {
+		// 		Cat.prototype[key] = animal[key]
+		// 	}
+		// 	Cat.prototype.name = name || 'cat'
+		// }
+		// var cat = new  Cat()
+		// console.log(cat instanceof Cat) //true
+		// console.log(cat instanceof Animal) //false
+		// cat.sleep() //cat is sleeping...
+		// cat.walk() //cat is walking
+		// console.log(cat.__proto__ === Cat.prototype)
+
+		/*
+			可以多继承, 子类只能访问父类可枚举的方法(for in)
+		*/
+
 
 	</script>
 </body>
