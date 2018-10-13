@@ -25,16 +25,19 @@
         // console.log(typeof arr1) //object
         // console.log(arr instanceof Array) //true
         // console.log(arr1 instanceof Array) //true
+        
 
         //构造器函数
-        // function Person () {
-        // 	this.name = 'xx'
-        // }
-        // Person.prototype.headCount = 1
-        // var p = new Person()
-        // var p1 = new Person()
-        // console.log(p === p1) //false 
-        // console.log(p.__proto__ === Person.prototype) //true
+        function Person () {
+        	this.name = 'xx'
+        }
+        Person.prototype.headCount = 1
+        var p = new Person()
+        var p1 = new Person()
+        console.log(p === p1) //false 
+        console.log(p.__proto__ === Person.prototype) //true
+        console.log(Person.constructor === Function) //true
+        // console.log()Person.__proto__ === Function.prototype //true
 
 	</script>
 </body>
