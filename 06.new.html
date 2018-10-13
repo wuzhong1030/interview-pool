@@ -11,6 +11,8 @@
 		}
 		var p = new Person('aa', 22)
 
+		// console.log(p.constructor.__proto__ === Person.prototype) false
+
 		// new的实现
 		function New (f) {
 			return function () {
@@ -21,7 +23,11 @@
 		}
 
 		var p2 = New(Person)('bb', 33)
-		console.log(p2.age) //33
+		// console.log(p2.age) //33
+		// console.log(p2 instanceof Person)
+		console.log(p2.constructor === Person) //true
+		console.log(p2.constructor.__proto__ === Person.prototype) //false
+		// console.log(p2.__proto__ === Person.prototype) //true
 	</script>
 </body>
 </html>
