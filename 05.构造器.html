@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var o = {}
+		var o1 = new Object()
+		// console.log(o.constructor === o1.constructor)
+
+        var a = 1
+        var b = new Number(2)
+        console.log(b) //Number {2}
+        console.log(typeof b) //object
+        console.log(typeof a) //number
+        console.log(a instanceof Number) //false
+        console.log(b instanceof Number) //true
+        console.log(a.constructor === b.constructor)
+	</script>
+</body>
+</html>
