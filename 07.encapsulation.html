@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person (name) {
+			var age = 30
+			this.name = name
+			function pm () {
+				console.log('private method')
+			}
+			this.test = function () {
+				console.log('public method')
+			}
+		}
+
+		var p = new Person('xxx')
+	</script>
+</body>
+</html>
