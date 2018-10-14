@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function copyDeeply (p, c) {
+			var c = c || {}
+			for (var prop in p) {
+				if (typeof p[prop] === 'object') {
+					c[prop] = p[prop].constructor === Array ? [] : {}
+					copyDeeply(p[prop], c[prop])
+				} else {
+					c[prop] = p[prop]
+				}
+			}
+		}
+
+		var person = {
+			name: 'aa',
+			address: {
+				home: 'bb'
+			},
+			list: ['m', 'n']
+		}
+
+		var programer = {
+			name: 'programer'
+		}
+
+		// copyDeeply(person, programer)
+
+
+		function Parent () {
+			this.name = 'aaa'
+			this.address = {
+				home: 'p home'
+			}
+		}
+
+		function Child () {
+			Parent.call(this)
+			this.list = ['m', 'n']
+		}
+
+	</script>
+</body>
+</html>
