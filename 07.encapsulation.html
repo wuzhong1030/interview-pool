@@ -20,20 +20,43 @@
 		// p.pm() //Uncaught TypeError: p.pm is not a function
 		// p.test() //public method
 
-		function Person (name) {
-			this.name = name
-			function pm () {
-				console.log(this.name)
-			}
-			this.test = function () {
-				console.log('public method')
-				// pm()
-				pm.call(this)
-			}
-		}
+		// function Person (name) {
+		// 	this.name = name
+		// 	function pm () {
+		// 		console.log(this.name)
+		// 	}
+		// 	this.test = function () {
+		// 		console.log('public method')
+		// 		// pm()
+		// 		pm.call(this)
+		// 	}
+		// }
 
-		var p = new Person('AA')
-		p.test() //AA
+		// var p = new Person('AA')
+		// p.test() //AA
+
+
+		// function person (pname) {
+		// 	function pm () {
+		// 		console.log(self.name)
+		// 	}
+
+		// 	var self = {
+		// 		name: pname,
+		// 		test: function () {
+		// 			pm()
+		// 		}
+		// 	}
+
+		// 	return self
+		// }
+
+		// var p = person('bb')
+		// p.test() //bb
+
+
+
+
 
 	</script>
 </body>
