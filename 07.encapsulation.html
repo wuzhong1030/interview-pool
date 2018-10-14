@@ -5,18 +5,36 @@
 </head>
 <body>
 	<script type="text/javascript">
+		// function Person (name) {
+		// 	var age = 30
+		// 	this.name = name
+		// 	function pm () {
+		// 		console.log('private method')
+		// 	}
+		// 	this.test = function () {
+		// 		console.log('public method')
+		// 	}
+		// }
+
+		// var p = new Person('xxx')
+		// p.pm() //Uncaught TypeError: p.pm is not a function
+		// p.test() //public method
+
 		function Person (name) {
-			var age = 30
 			this.name = name
 			function pm () {
-				console.log('private method')
+				console.log(this.name)
 			}
 			this.test = function () {
 				console.log('public method')
+				// pm()
+				pm.call(this)
 			}
 		}
 
-		var p = new Person('xxx')
+		var p = new Person('AA')
+		p.test() //AA
+
 	</script>
 </body>
 </html>
