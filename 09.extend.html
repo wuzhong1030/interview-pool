@@ -5,7 +5,17 @@
 </head>
 <body>
 	<script type="text/javascript">
-		
+		var o = {name: 'aa'}
+
+		function myCreate (p) {
+			var ins
+
+			function F () {}
+			F.prototype = p
+			ins = new F()
+			return ins
+
+		}
 	</script>
 </body>
 </html>
