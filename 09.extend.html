@@ -9,13 +9,14 @@
 
 		function myCreate (p) {
 			var ins
-
 			function F () {}
 			F.prototype = p
 			ins = new F()
 			return ins
-
 		}
+
+		var p = myCreate(o)
+		console.log(p.name) //aa
 	</script>
 </body>
 </html>
