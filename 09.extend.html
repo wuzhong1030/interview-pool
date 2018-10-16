@@ -5,18 +5,38 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var o = {name: 'aa'}
+		// var o = {name: 'aa'}
 
-		function myCreate (p) {
-			var ins
-			function F () {}
-			F.prototype = p
-			ins = new F()
-			return ins
-		}
+		// function myCreate (p) {
+		// 	var ins
+		// 	function F () {}
+		// 	F.prototype = p
+		// 	ins = new F()
+		// 	return ins
+		// }
 
-		var p = myCreate(o)
-		console.log(p.name) //aa
+		// var p = myCreate(o)
+		// console.log(p.name) //aa
+
+		// class MyDate extends Date {
+		// 	test() {
+		// 		return this.getTime()
+		// 	}
+		// }
+		// let d = new MyDate()
+		// console.log(d.test())
+
+		// function MyDate () { }
+		// MyDate.prototype.test = function () {
+		// 	return this.getTime()
+		// }
+
+		// var d = new Date()
+		// Object.setPrototypeOf(d, MyDate.prototype)
+		// Object.setPrototypeOf(MyDate.prototype, Date.prototype)
+
+		// var dd = new MyDate()
+		// console.log(dd.test())
 	</script>
 </body>
 </html>
