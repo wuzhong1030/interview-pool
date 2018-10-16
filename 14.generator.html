@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function* fn () {
+			let a = 1 + 2
+			yield 2
+			yield 3
+		}
+		let res = fn()
+		console.log(res)
+		console.log(res.next())
+		console.log(res.next())
+		console.log(res.next())
+		console.log(res.next())
+	</script>
+</body>
+</html>
