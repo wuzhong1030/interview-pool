@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //函数防抖
+    function debounce(fn, wait = 50) {
+        let timer
+        return function(...args) {
+            if (timer) clearTimeout(timer)
+            timer = setTimeout(() => {
+                fn.call(this, args)
+            }, wait)
+        }
+    }
+    </script>
+</body>
+
+</html>
