@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myInstanceof (left, right) {
+			left = left.__proto__
+			var prototype = right.prototype
+
+			while (true) {
+				if (left === null) 
+					return false
+				if (left === prototype)
+					return true
+				left = left.__proto__
+			}
+		}
+		function Person (name) {
+			this.name = name
+		}
+		var p = new Person('aa')
+
+		console.log(myInstanceof(p, Person)) //true
+	</script>
+</body>
+</html>

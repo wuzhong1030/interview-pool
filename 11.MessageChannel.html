@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MessageChannel</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    let obj = {
+        a: 1,
+        b: {
+            c: 2,
+            d: 3
+        },
+        f: undefined
+    }
+    obj.c = obj.b
+    obj.e = obj.a
+    obj.b.c = obj.c
+    obj.b.d = obj.b
+    obj.b.e = obj.b.c
+
+
+    function deepClone (obj) {
+    	return new Promise(resolve => {
+    		const { port1, port2 } = new MessageChannel()
+    		port2.onmessage = ev => resolve(ev.data)
+    		port1.postMessage(obj)
+    	})
+    }
+
+    deepClone(obj).then(copy => {
+    	let copyObj = copy
+    	console.log(copyObj, obj)
+    	console.log(copyObj == obj)
+    	console.log(copyObj === obj)
+    })
+    </script>
+</body>
+
+</html>
