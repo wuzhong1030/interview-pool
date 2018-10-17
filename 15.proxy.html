@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // let person = {
+    // 	name: 'aaa',
+    // 	age: 23
+    // }
+
+    // let p = new Proxy(person, {
+    // 	// handler.get() 方法用于拦截对象的读取属性操作
+    // 	get: function (target, prop, receiver) {
+    // 		console.log('访问了person属性', prop)
+    // 		return target[prop]
+    // 	},
+
+    // 	// handler.set() 方法用于拦截设置属性值的操作
+    // 	set: function (target, prop, value, reveiver) {
+    // 		console.log('设置了person属性', prop)
+    // 		target[prop] = value
+    // 	},
+
+    // 	has: function (target, prop) {
+
+    // 	}
+
+
+    // })
+
+    // console.log(p.age)
+    // p.name = 'xxxx'
+    const dom = new Proxy({}, {
+        get(target, property) {
+            return function(attrs = {}, ...children) {
+                const el = document.createElement(property);
+                for (let prop of Object.keys(attrs)) {
+                    el.setAttribute(prop, attrs[prop]);
+                }
+                for (let child of children) {
+                    if (typeof child === 'string') {
+                        child = document.createTextNode(child);
+                    }
+                    el.appendChild(child);
+                }
+                return el;
+            }
+        }
+    });
+
+    const el = dom.div({},
+        'Hello, my name is ',
+        dom.a({ href: '//example.com' }, 'Mark'),
+        '. I like:',
+        dom.ul({},
+            dom.li({}, 'The web'),
+            dom.li({}, 'Food'),
+            dom.li({}, '…actually that\'s it')
+        )
+    );
+
+    document.body.appendChild(el);
+    </script>
+</body>
+
+</html>
