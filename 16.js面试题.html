@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>1. JS中使用typeof可以得到哪些类型</p>
+	<p>2. === 和 == 的区别</p>
+	<p>3. window.onload 和 DOMContentLoaded的区别</p>
+	<p>4. 用JS创建10个a标签，点击弹出对应的序号</p>
+	<p>5. 简述实现一个模块加载器，实现一个类似requireJs的功能</p>
+	<p>6. 实现数组的随机排序</p>
+	
+	<script type="text/javascript">
+		function createUl () {
+			var ul = document.createElement('ul')
+			var liTag = ''
+			for (var i = 0; i < 10; i++) {
+				liTag += '<li>' + i + '</li>'
+			}
+			ul.innerHTML = liTag
+			document.body.appendChild(ul)
+			ul.addEventListener('click', function (e) {
+				if (e.target.nodeName === 'LI') {
+					alert(e.target.innerText)
+				}
+			}, true)
+		}
+		createUl()
+	</script>
+</body>
+</html>
