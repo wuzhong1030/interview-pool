@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <ul id="list">
+        <li class="item">item 1</li>
+        <li class="item">item 2</li>
+    </ul>
+    <script type="text/javascript">
+    var dom = {
+        tag: 'ul',
+        attrs: {
+            id: 'list'
+        },
+        children: [{
+                tag: 'li',
+                attrs: {
+                    className: 'item',
+                },
+                children: ['item 1']
+            },
+            {
+                tag: 'li',
+                attrs: {
+                    className: 'item',
+                },
+                children: ['item 2']
+            }
+        ]
+    }
+
+    // var vnode = h('ul#list', {}, [
+    //     h('li.item', {}, 'item 1'),
+    //     h('li.item', {}, 'item 2')
+    // ])
+    </script>
+</body>
+
+</html>
