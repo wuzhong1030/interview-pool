@@ -1,5 +1,6 @@
 function Compile (el, vm) {
 	this.$vm = vm
+	// console.log(vm)
 	this.$el = this.isElementNode(el) ? el : document.querySelector(el)
 	if (this.$el) {
 		this.$fragment = this.node2Fragment(this.$el)
@@ -48,10 +49,11 @@ Compile.prototype = {
 			if (self.isDirective(attrName)) { // v-text
 				var exp = attr.value //content
 				var dir = attrName.substring(2) // text or on:click
+				// debugger
 				if (self.isEventDirective(dir)) {
-					compileUtil.eventHandle(node, this.$vm, exp, dir)
+					compileUtil.eventHandle(node, self.$vm, exp, dir)
 				} else {
-					compileUtil[dir] && compileUtil[dir](ndoe, this.$vm, exp)
+					compileUtil[dir] && compileUtil[dir](node, self.$vm, exp)
 				}
 			}
 		})
@@ -82,11 +84,13 @@ var compileUtil = {
 	html: function (ndoe, vm, exp) {
 		this.bind(node, vm, exp, 'html')
 	},
-	mode: function (node, vm, exp) {
-		this.bind(node, vm, exp, 'mode')
+	model: function (node, vm, exp) {
+		this.bind(node, vm, exp, 'model')
+		console.log(vm)
 		var self = this,
 			val = this._getVMVal(vm, exp)
 		node.addEventListener('input', function (e) {
+			console.log('input')
 			var newVal = e.target.value
 			if (val === newVal) {
 				return
