@@ -20,6 +20,30 @@
     <p>如何理解JSON</p>
     <p>JSON.parse() JSON.stringify()，一个js对象</p>
 
+    <p>如何准确判断一个变量是数组</p>
+    <p>Object.prototype.toString.call(xx) === '[object Array]'</p>
+
+    <p>写一个原型链继承的例子</p>
+    <script type="text/javascript">
+    	function Parent (name) {
+    		this.name = name || 'parent'
+    	}
+    	//原型链继承
+    	function Child () {}
+    	var child = new Child()
+    	child.prototype = Parent
+
+    	// apply call 继承 
+    	function Child () {
+    		Parent.apply(this)
+    	}
+    </script>
+
+    <p>描述new一个对象的过程</p>
+    <p></p>
+
+    <p>zepto（或其他框架）源码中如何使用原型链</p>
+
     <p>window.onload 和 DOMContentLoaded的区别（浏览器渲染过程）</p>
 
     <p>用JS创建10个a标签，点击弹出对应的序号（作用域）</p>
