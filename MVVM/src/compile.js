@@ -1,4 +1,5 @@
-function Compile (el) {
+function Compile (el, vm) {
+	this.$vm = vm
 	this.$el = this.isElementNode(el) ? el : document.querySelector(el)
 	if (this.$el) {
 		this.$fragment = this.node2Fragment(this.$el)
@@ -23,14 +24,14 @@ Compile.prototype = {
 	},
 	compileElement: function  (el) {
 		var childNodes = el.childNodes
-		var self = this
+		var self = this;
 		[].slice.call(childNodes).forEach(function (node) {
 			var text = node.textContent
 			var reg = /\{\{(.*)\}\}/
 			if (self.isElementNode(node)) {
 				self.compile(node)
-			} else if (self.isTextNode(node) && reg.text(text)) {
-				self.compileText(node, Regexp.$1)
+			} else if (self.isTextNode(node) && reg.test(text)) {
+				self.compileText(node, RegExp.$1)
 			}
 			// 遍历编译子节点
 			if (node.childNodes && node.childNodes.length) {
@@ -40,7 +41,7 @@ Compile.prototype = {
 	},
 	compile: function (node) {
 		var nodeAttrs = node.attributes
-		var self = this
+		var self = this;
 		[].slice.call(nodeAttrs).forEach(function (attr) {
 			// 指令以 v-text 命名
 			var attrName = attr.name
@@ -55,9 +56,9 @@ Compile.prototype = {
 			}
 		})
 	},
-
-
-
+	compileText: function (node, exp) {
+		compileUtil.text(node, this.$vm, exp)
+	},
 
 	isElementNode: function (node) {
 		return node.nodeType === 1
@@ -120,6 +121,7 @@ var compileUtil = {
 
 	_getVMVal: function (vm, exp) {
 		var val = vm
+		console.log(val)
 		exp = exp.split('.')
 		exp.forEach(function (k) {
 			val = val[k]
@@ -146,7 +148,7 @@ var updater = {
 		node.textContent = typeof value === 'undefined' ? '' : value
 	},
 	htmlUpdater: function (node, value) {
-		node.innerHTML = typeof value === 'undefined' ？ '' : ''
+		node.innerHTML = typeof value === 'undefined' ? '' : value
 	},
 	classUpdater: function (node, value, oldValue) {
 		var className = node.className

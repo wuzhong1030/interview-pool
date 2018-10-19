@@ -4,6 +4,23 @@
 	<title>MVVM</title>
 </head>
 <body>
+	<div id="app">
+		<input type="text" v-model="name">
+		name: {{name}}
+	</div>
 
+	<script src="./src/observer.js"></script>
+	<script src="./src/watcher.js"></script>
+	<script src="./src/compile.js"></script>
+	<script src="./src/mvvm.js"></script>
+
+	<script>
+		var vm = new MVVM({
+			el: '#app',
+			data: {
+				name: 'xxx'
+			}
+		})
+	</script>
 </body>
 </html>
