@@ -6,6 +6,9 @@
 <body>
 	<script type="text/javascript">
 		function myInstanceof (left, right) {
+			if (typeof left !== 'object') {
+				return new TypeError('type error')
+			}
 			left = left.__proto__
 			var prototype = right.prototype
 
