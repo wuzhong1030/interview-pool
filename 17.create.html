@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function createEx (Child, Parent) {
+			function F () {}
+			F.prototype = Parent.prototype
+			Child.prototype = new F()
+			Child.prototype.constructor = Child 
+		}
+
+	</script>
+</body>
+</html>
