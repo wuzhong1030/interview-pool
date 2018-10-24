@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>选择排序</p>
+	<script>
+		function swap (arr, psol, psor) {
+			var m = arr[psol]
+			arr[psol] = arr[psor]
+			arr[psor] = m
+		}
+
+		function selectSort (arr) {
+			var i, j, min
+			len = arr.length
+
+			for (i = 0; i < len - 1; i++) {
+				min = 1
+				for (j = i + 1; j < len; j++) {
+					if (arr[j] < arr[i]) {
+						min = j
+					}
+				}
+				if (min !== i) {
+					swap(arr, i, min)
+				}
+			}
+
+			return arr
+		}
+	</script>
+</body>
+</html>

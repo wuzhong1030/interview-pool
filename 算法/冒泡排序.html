@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <p>冒泡排序</p>
+    <script type="text/javascript">
+    function sortBubble(arr) {
+        if (arr.length <= 1)
+            return
+        var m, i, j;
+        var len = arr.length
+        for (i = 0; i < len - 1; i++) {
+            for (j = 0; j < len - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    m = arr[j]
+                    arr[j] = arr[j + 1]
+                    arr[j + 1] = m
+                }
+            }
+        }
+        return arr
+    }
+
+    var arr = [1, 2, 324, 234, 3, 23, 13, 12, 31, 312, 3, 123, 21321, 3]
+    console.log(sortBubble(arr))
+
+    </script>
+    <p>如果数组本身就是冒泡排序的，后面的几个元素不需要进行比较，那就多浪费几次循环了</p>
+    <p>改进写法</p>
+    <script type="text/javascript">
+    	function sortBubble1 (arr) {
+    		if (arr.length <= 1)
+    			return
+    		var i, j, m, noswap
+    		var len = arr.length
+
+    		for (i = 0; i < len - 1; i++) {
+    			noswap = true
+    			for (j = 0; j < len - i - 1; j++) {
+    				if (arr[j] > arr[j+1]) {
+    					m = arr[j]
+    					arr[j] = arr[j+1]
+    					arr[j+1] = m
+    					noswap = false
+    				}
+    			}
+    			if (noswap) {
+    				break
+    			}
+    		}
+    		return arr
+    	}
+    	var arr = [1, 2, 324, 234, 3, 23, 13, 12, 31, 312, 3, 123, 21321, 3]
+    	console.log(sortBubble(arr))
+    </script>
+
+    <p>时间复杂度为 O(n²)</p>
+</body>
+
+</html>
