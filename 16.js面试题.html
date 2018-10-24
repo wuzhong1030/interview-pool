@@ -70,6 +70,19 @@
     }
     createUl()
     </script>
+
+    <p>前端实现跨域的几种方式</p>
+    <ul>
+        <li>JSONP</li>
+        <li>document.domain + iframe (仅限主域相同，子域不同)</li>
+        <li>window.name + iframe（iframe.contentWindow.name, 最多支持2M数据）</li>
+        <li>location.hash + iframe（通过中间页来完成跨域，不用域之间通过hash值单向通信，同域之间可以通过js访问）</li>
+        <li>postMessage + iframe（用于多页面，多窗口，以及嵌套iframe的消息传递）</li>
+        <li>后端CORS（Access-Control-Allow-Origin）</li>
+        <li>Nginx 反向代理跨域</li>
+        <li>nodejs中间件代理 http-proxy-middleware中间件 或者 webpack-dev-server 配置devServer.proxy</li>
+        <li>websocket协议跨域, 全双工通信，同事允许跨域通信</li>
+    </ul>
 </body>
 
 </html>
