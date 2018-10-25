@@ -7,10 +7,10 @@
 <body>
 	<p>选择排序</p>
 	<script>
-		function swap (arr, psol, psor) {
-			var m = arr[psol]
-			arr[psol] = arr[psor]
-			arr[psor] = m
+		function swap (arr, posl, posr) {
+			var m = arr[posl]
+			arr[posl] = arr[posr]
+			arr[posr] = m
 		}
 
 		function selectSort (arr) {
@@ -18,9 +18,9 @@
 			len = arr.length
 
 			for (i = 0; i < len - 1; i++) {
-				min = 1
+				min = i
 				for (j = i + 1; j < len; j++) {
-					if (arr[j] < arr[i]) {
+					if (arr[j] < arr[min]) {
 						min = j
 					}
 				}
@@ -31,6 +31,10 @@
 
 			return arr
 		}
+
+		var arr = [23,21,1,32,3,24,4,2,42,3,53,3,4,35,346,457,567,2,312,321]
+		console.log(selectSort(arr))
 	</script>
+	<p>时间复杂度依然为 O(n²)，但简单选择排序在性能上还是略优于冒泡排序的</p>
 </body>
 </html>

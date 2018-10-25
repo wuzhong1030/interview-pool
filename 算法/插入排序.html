@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>插入排序</p>
+	<script>
+		function insertSort (arr) {
+			var i, j, m, mCnt = 0
+			var len = arr.length
+
+			for (i = 1; i < len; i++) {
+				if (arr[i] < arr[i - 1]) {
+					m  = arr[i]
+					for (j = i - 1; arr[j] > m; j--) {
+						arr[j + 1] = arr[j]
+						mCnt++
+					}
+					console.log('移动了 '+mCnt+' 次');
+				    mCnt = 0;
+				    // 直接插入
+				    arr[j+1] = m;
+				}
+			}
+			return arr
+		}
+
+		var arr = [54,123,2,45,64,12,76,33,221,1,2345,21]
+		console.log(insertSort(arr))
+	</script>
+	<p>时间复杂度依旧为 O(n²)</p>
+</body>
+</html>

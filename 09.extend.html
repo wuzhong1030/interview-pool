@@ -26,17 +26,17 @@
 		// let d = new MyDate()
 		// console.log(d.test())
 
-		// function MyDate () { }
+		function MyDate () { }
 		// MyDate.prototype.test = function () {
 		// 	return this.getTime()
 		// }
 
-		// var d = new Date()
+		var d = new Date()
 		// Object.setPrototypeOf(d, MyDate.prototype)
-		// Object.setPrototypeOf(MyDate.prototype, Date.prototype)
 
-		// var dd = new MyDate()
-		// console.log(dd.test())
+		var dd = new MyDate()
+		Object.setPrototypeOf(dd, d)
+		console.log(dd.getTime())
 	</script>
 </body>
 </html>
