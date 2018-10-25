@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.parent {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 400px;
+			height: 200px;
+			background: red;
+		}
+		.child {
+			width: 200px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child"></div>
+	</div>
+
+	<script>
+		// document.querySelectorAll('.child')[0].addEventListener('click', function (e) {
+		// 	console.log(e.target)
+		// }, true)
+
+		document.querySelectorAll('.parent')[0].addEventListener('click', function (e) {
+			console.log(e.target, e.currentTarget)
+			// currentTarget 绑定事件的元素
+			// target 触发事件的元素
+		}, false)
+	</script>
+</body>
+</html>
