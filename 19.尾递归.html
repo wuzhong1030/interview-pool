@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// function sum (x, y) {
+		// 	if (y > 0) {
+		// 		return sum(x + 1, y - 1)
+		// 	} else {
+		// 		return x
+		// 	}
+		// } 
+		// Uncaught RangeError: Maximum call stack size exceeded
+		// console.log(sum(1, 100000))
+
+
+
+		// 尾递归只有在严格模式下生效，正常模式下或者不支持该优化的环境下，可以采用循环代替递归的形式
+		function sum (x, y) {
+			if (y > 0) {
+				return sum.bind(null, x + 1, y - 1)
+			} else {
+				return x
+			}
+		}
+
+		// 蹦床函数
+		function trampoline (f) {
+			while (f && f instanceof Function) {
+				f = f()
+			}
+			return f
+		}
+		//100001
+		console.log(trampoline(sum(1, 100000)))
+	</script>
+</body>
+</html>
