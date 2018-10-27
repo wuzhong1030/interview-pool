@@ -23,6 +23,14 @@
 			}
 		}
 
+		// function New (f) {
+		// 	return function () {
+		// 		var o = {'__proto__': f.prototype}
+		// 		f.apply(o, arguments)
+		// 		return o
+		// 	}
+		// }
+
 		var p2 = New(Person)('bb', 33)
 		// console.log(p2.age) //33
 		// console.log(p2 instanceof Person)
