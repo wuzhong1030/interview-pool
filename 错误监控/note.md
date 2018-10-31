@@ -48,7 +48,7 @@ throw new Error('这是一个错误');
 <script src="http://cdn.xxx.com/index.js" crossorigin="anonymous"></script>
 ```
 ## sourceMap
-开启 source-map, 利用webpack打包后的生成的一份.map的脚本文件就可以让浏览器对错误位置进行追踪了
+开启 source-map
 
 ## Vue捕获异常
 ```javascript
@@ -56,9 +56,6 @@ Vue.config.errorHandler = function (err, vm, info) {
   // handle error  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子  // 只在 2.2.0+ 可用
 }
 ```
-
-
-
 
 
 
