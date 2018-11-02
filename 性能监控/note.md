@@ -19,11 +19,6 @@ function init() {
 ```
 
 ```javascript
-作者：counterxing
-链接：https://zhuanlan.zhihu.com/p/40830370
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
 // 获取 performance 数据
 var performance = {  
     // memory 是非标准属性，只在 Chrome 有
@@ -34,7 +29,7 @@ var performance = {
         jsHeapSizeLimit: 793000000 // 内存大小限制
     },
  
-    //  哲学问题：我从哪里来？
+    // 哲学问题：我从哪里来？
     navigation: {
         redirectCount: 0, // 如果有重定向的话，页面通过几次重定向跳转而来
         type: 0           // 0   即 TYPE_NAVIGATENEXT 正常进入的页面（非刷新、非重定向等）
