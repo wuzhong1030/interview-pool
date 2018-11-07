@@ -6,13 +6,7 @@
 <body>
 	<div id="app">
 		<input type="text" v-model="name">
-		<select v-model="select">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-		</select>
 		name: {{name}}
-		select: {{select}}
 	</div>
 
 	<script src="./src/observer.js"></script>
@@ -24,8 +18,7 @@
 		var vm = new MVVM({
 			el: '#app',
 			data: {
-				name: 'xxx',
-				select: '2'
+				name: ''
 			}
 		})
 	</script>

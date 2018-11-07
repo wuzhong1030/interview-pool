@@ -1,4 +1,4 @@
-function createElement (vnode) {
+function createEle (vnode) {
 	var tag = vnode.tag
 	var attrs = vnode.attrs
 	var children = vnode.children
@@ -7,15 +7,16 @@ function createElement (vnode) {
 		return
 
 	var element = document.createElement(tag)
+	console.log(element)
 
 	for (var attrName in attrs) {
 		if (attrs.hasOwnProperty(attrName)) {
-			element.setAttrbuite(attrName, attrs[attrName])
+			element.setAttribute(attrName, attrs[attrName])
 		}
 	}
 
 	children.forEach(function (child) {
-		element.appendChild(createElement(child))
+		element.append(createEle(child))
 	})
 
 	return element

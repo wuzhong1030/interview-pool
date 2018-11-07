@@ -3,15 +3,16 @@
 
 <head>
     <title></title>
+    <script src="createElement.js"></script>
 </head>
 
 <body>
-    <ul id="list">
+    <!-- <ul id="list">
         <li class="item">item 1</li>
         <li class="item">item 2</li>
-    </ul>
+    </ul> -->
     <script type="text/javascript">
-    var dom = {
+    var vdom = {
         tag: 'ul',
         attrs: {
             id: 'list'
@@ -32,6 +33,10 @@
             }
         ]
     }
+
+    var dom = createEle(vdom)
+    console.log(dom)
+    document.body.appendChild(dom)
 
     // var vnode = h('ul#list', {}, [
     //     h('li.item', {}, 'item 1'),
