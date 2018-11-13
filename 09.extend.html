@@ -26,17 +26,46 @@
 		// let d = new MyDate()
 		// console.log(d.test())
 
-		function MyDate () { }
-		// MyDate.prototype.test = function () {
-		// 	return this.getTime()
-		// }
+		// function MyDate () { }
+		
+		// var myDate = Object.create(Date)
 
+		// var d = new myDate()
+		// console.log(d.getTime())
+
+		console.log(Date)
 		var d = new Date()
-		// Object.setPrototypeOf(d, MyDate.prototype)
 
-		var dd = new MyDate()
-		Object.setPrototypeOf(dd, d)
-		console.log(dd.getTime())
+		function MyDate () {}
+		MyDate.prototype = Object.create(Date.prototype)
+		MyDate.prototype.constructor = MyDate
+
+		var d = new MyDate()
+		// console.log(typeof d)
+		// console.log(d instanceof Date)
+		// console.log(d.__proto__ === Date.prototype)
+		// console.log(Date.prototype.constructor === Date)
+
+		// var dd = new Date()
+		// console.log(dd.getTime())
+		// console.log(d.getTime())// Uncaught TypeError: this is not a Date object.
+		//要调用Date上方法的实例对象必须通过Date构造出来，否则不允许调用Date的方法
+
+
+		Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
+			obj.__proto__ = proto
+			return obj
+		}
+
+		function DateTest () {
+			var dataInstance = new (Function.prototype.bind.call(Date, [Date].concat(Array.prototype.slice.call(arguments))))()
+			Object.setPrototypeOf(dataInstance, Date.prototype)
+			return dataInstance
+		}
+
+		var ddd = new DateTest()
+		console.log(ddd.getTime())
+
 	</script>
 </body>
 </html>
