@@ -97,6 +97,22 @@
 				}
 			</script>
 		</li>
+		<li>
+			<h3>Promise.prototype.finally()</h3>
+			<p>
+				finally()是ES8中Promise添加的一个新标准，用于指定不管Promise对象最后状态（是fulfilled还是rejected）如何，都会执行此操作，并且finally方法必须写在最后面，即在then和catch方法后面。
+			</p>
+			<div>
+				<p>写法如下</p>
+				<script>
+					promise
+					    .then(res => {...})
+					    .catch(err => {...})
+					    .finally(() => {...})
+
+				</script>
+			</div>
+		</li>
 	</ul>
 </body>
 </html>
