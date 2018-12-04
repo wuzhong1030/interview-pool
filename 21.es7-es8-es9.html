@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>ES7</h3>
+	<ul>
+		<li>
+			<h3>Array.prototype.includes()方法</h3>
+			<p>includes()用于查找一个值是否在数组中，如果在返回true，否则返回false</p>
+			<div>
+				['a', 'b', 'c'].includes('a');     // true
+				['a', 'b', 'c'].includes('d');     // false
+			</div>
+
+			<p>includes()方法接收两个参数，搜索的内容和开始搜索的索引，默认值为0，若搜索值在数组中则返回true否则返回false。</p>
+			<div>
+				['a', 'b', 'c', 'd'].includes('b');      // true
+				['a', 'b', 'c', 'd'].includes('b', 1);   // true
+				['a', 'b', 'c', 'd'].includes('b', 2);   // false
+			</div>
+
+			<p>与indexOf方法对比，下面方法效果相同：</p>
+			<div>
+				['a', 'b', 'c', 'd'].indexOf('b');       // true
+				['a', 'b', 'c', 'd'].includes('b') > -1; // true 
+			</div>
+
+			<p>includes()与indexOf对比：</p>
+			<div>
+				<ul>
+					<li>
+						includes相比indexOf更具语义化，includes返回的是是否存在的具体结果，值为布尔值，而indexOf返回的是搜索值的下标。
+					</li>
+					<li>
+						includes相比indexOf更准确，includes认为两个NaN相等，而indexOf不会。
+					</li>
+				</ul>
+				<div>
+					let a = [1, NaN, 3];
+					a.indexOf(NaN);     // -1
+					a.includes(NaN);    // true
+				</div>
+				<p>另外在判断+0与-0时，includes和indexOf的返回相同。</p>
+				<div>
+					[1, +0, 3, 4].includes(-0);   // true
+					[1, +0, 3, 4].indexOf(-0);    // 1
+				</div>
+			</div>
+		</li>
+		<li>
+			<h3>指数操作符(**)</h3>
+			<p>基本用法:</p>
+			<div>
+				let a = 3 ** 2 ; // 9
+				// 等效于
+				Math.pow(3, 2);  // 9
+			</div>
+			<p>**是一个运算符</p>
+			<div>
+				let a = 3;
+				a **= 2;    // 9
+			</div>
+		</li>
+	</ul>
+	<hr>
+	<h3>ES8</h3>
+	<ul>
+		<li>
+			<h3>async函数</h3>
+			<p>
+				ES8引入async函数，是为了使异步操作更加方便，其实它就是Generator函数的语法糖。async函数使用起来，只要把Generator函数的**（*）**号换成async，yield换成await即可。对比如下：
+			</p>
+			<script>
+				const fs = require('fs')
+				const readFile = function (fileName) {
+					return new Promise(function (resolve, reject) {
+						fs.readFile(fileName, function (error, data) {
+							if (error) {
+								return reject(error)
+							}
+							resolve(data)
+						})
+					})
+				}
+
+				const gen = function* () {
+					const f1 = yield readFile('/etc/a')
+					const f2 = yield readFile('/etc/b')
+				}
+
+				const asyncGen = async function () {
+					const f1 = await readFile('/etc/a')
+					const f2 = await readFile('/etc/b')
+				}
+			</script>
+		</li>
+	</ul>
+</body>
+</html>

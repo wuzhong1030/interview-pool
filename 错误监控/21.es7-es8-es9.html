@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<h3>Array.prototype.includes()方法</h3>
+			<p>includes()用于查找一个值是否在数组中，如果在返回true，否则返回false</p>
+			<div>
+				['a', 'b', 'c'].includes('a');     // true
+				['a', 'b', 'c'].includes('d');     // false
+			</div>
+
+			<p>includes()方法接收两个参数，搜索的内容和开始搜索的索引，默认值为0，若搜索值在数组中则返回true否则返回false。</p>
+			<div>
+				['a', 'b', 'c', 'd'].includes('b');      // true
+				['a', 'b', 'c', 'd'].includes('b', 1);   // true
+				['a', 'b', 'c', 'd'].includes('b', 2);   // false
+			</div>
+		</li>
+	</ul>
+</body>
+</html>
