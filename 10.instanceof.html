@@ -9,6 +9,7 @@
 			if (typeof left !== 'object') {
 				return new TypeError('type error')
 			}
+			// 判断左边的对象在不在右边的原型链上
 			left = left.__proto__
 			var prototype = right.prototype
 
