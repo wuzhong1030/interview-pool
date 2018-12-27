@@ -39,7 +39,8 @@
         var that = this
 
         return function F() {
-            if (this instanceof F) {
+            // if (this instanceof F) {
+               if (new.target === F) {
             	console.log('in..', ...args, ...arguments)
                 return new that(...args, ...arguments)
             }
